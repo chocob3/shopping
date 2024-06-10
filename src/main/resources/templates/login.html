@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ログイン画面</title>
+<style>
+h1{
+text-align: center;
+}
+p{
+text-align: center;
+}
+    ul {
+        list-style: none;
+       
+    }
+    .box {
+        border: 1px solid #000;
+        border-radius:1;
+        max-width: 500px;
+        width: auto;
+        min-height: 100px;
+        margin: 0 auto;
+         text-align: center;
+    }
+    input[type="submit"] {
+        background-color: yellow;
+        border-radius: 1px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+
+</style>
+</head>
+<body>
+<h1>ショッピングサイト</h1>
+<div class="box" >
+<p id="login" text-align="center">ログイン</p>
+<form th:action="@{/login/regist}" method="post" th:object="${registerForm}">
+<ul id="loginlist">
+<li><input type="text" name="id"placeholder="IDを入力してください(半角英数字)" pattern="[a-zA-Z0-9]+" th:value="*{id}"/></li>
+<li><input type="text" name="password" placeholder="パスワードを入力してください(半角英数字)" pattern="[a-zA-Z0-9]+"/></li>
+<li><input type="submit" value="ログイン" background-color="yellow" pattern="[a-zA-Z0-9]+"/></li>
+</ul>
+</form>
+<p class="error" th:text="${errmsg}"></p>
+</div>
+
+<form th:action="@{/regist/regist}" method="GET">
+<p>アカウントの新規発行は<input type="submit" value="こちら"></p>
+</form>
+
+
+
+</body>
+</html>

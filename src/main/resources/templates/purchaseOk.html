@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>購入完了画面</title>
+<link rel="stylesheet" type="text/css" href="/css/purchaseOK.css">
+</head>
+<body>
+<h1>購入商品一覧</h1>
+<table>
+<tr><th>商品名</th><th>価格</th><th>個数</th><th>合計</th></tr>
+<tr th:each="products:${session.purchaseMap.keySet()}">
+	<td th:text="${products.productsname}" class="productsname"></td>
+	<td th:text="${products.price}"></td>
+	<td th:text="${session.purchaseMap.get(products)}"></td>
+	<td th:text="${session.purchaseMap.get(products) * products.price}"></td>
+</tr>
+</table>
+
+<form th:action="@{/purchase/purchase}" method="GET">
+<input type="submit" value="←購入画面に戻る"/>
+</form>
+<form th:action="@{/donePurchase/donePurchase}" method="GET">
+<input type="submit" value="購入を決定する→"/>
+</form>
+</br>
+<div class="scroll-container" id="imageContainer">
+</div>
+<form th:action="@{/login/login}" method="get">
+<input type="submit" value="ログアウト"/>
+</form>
+<script src="/js/purchaseOK.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+</html>

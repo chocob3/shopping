@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>購入画面</title>
+<style>
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+form {
+    margin-top: 20px;
+}
+</style>
+</head>
+<body>
+<h1>商品一覧</h1>
+
+
+<form th:action="@{/purchase/check}" method="post">
+	<table>
+	<tr><th>商品名</th><th>個数</th></tr>
+	<tr th:each="products:${application.productsList}">
+		<td th:text="${products.productsname}"></td>
+		<td><input type="number" th:name="${products.productsname}" th:max="${products.quantity}"min="0"value="0"/></td>
+
+	</tr>
+</table>
+<p th:text="${errmsg}"></p>
+<input type="submit" value="購入"/>
+</form>
+<form th:action="@{/regist/regist}" method="GET">
+<input type="submit" value="商品一覧画面へ"/>
+</form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+@charset "UTF-8";
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+.error-message{
+color:red;
+}
+.scroll-container {
+    width: 100%;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+.scroll-container img {
+    width: 300px; /* 画像の幅 */
+    height: auto; /* 画像の高さは幅に合わせる */
+    margin: 10px; /* 画像の間隔 */
+}

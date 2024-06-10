@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>購入通知</title>
+</head>
+<style>
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+</style>
+<body>
+<h1>購入商品一覧</h1>
+<table>
+<tr><th>商品名</th><th>価格</th><th>個数</th><th>合計</th></tr>
+<tr th:each="p:${session.purchaseProductsList}">
+	<td th:text="${p.productsname}"></td>
+	<td th:text="${p.price}"></td>
+	<td th:text="${session.purchaseMap.get(p)}"></td>
+	<td th:text="${session.purchaseMap.get(p)*p.price}"></td>
+</tr>
+</table>
+<p>を購入しました</p>
+
+<form th:action="@{/showProducts}">
+<input type="submit" value="←商品購入一覧へ">
+</form>
+<a href="login.jsp">ログアウト</a>
+
+
+</body>
+</html>

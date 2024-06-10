@@ -1,0 +1,20 @@
+[
+    {
+        "name": "ノート",
+        "price": 200,
+        "quantity": 14,
+        "description": "メーカー名：●●会社"
+        },
+    {
+        "name": "鉛筆",
+        "price": 100,
+        "quantity": 13,
+        "description": "メーカー名：▲会社"
+    },
+    {
+        "name": "消しゴム",
+        "price": 150,
+        "quantity": 20,
+        "description": "メーカー名：□会社"
+    }
+]

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>商品一覧画面</title>
+
+<link rel="stylesheet" type="text/css" href="/css/showProducts.css" %>
+<script src="/js/showProducts.js" type="text/javascript" charset="UTF-8"></script>
+
+</head>
+<body>
+
+<button id="openbtn"class="openbtn">←</button>
+
+<div id="mySidebar" class="sidebar" >
+ <button id="closebtn"class="closebtn">X</button>
+ <form action="ShowMyPageServlet" method="GET">
+ <input type="submit" value="マイページへ">
+ </form>
+ <form action="ShowMapServlet" method="GET">
+ <input type="submit" value="店舗情報">
+ </form>
+ <form action="ForDeveloperServlet" method="GET">
+ <input type="submit" value="管理者画面">
+</form>
+ </div>
+
+<h1>商品一覧</h1> 
+<table>
+<tr>
+	<th>商品名</th>
+	<th>価格</th>
+	<th>在庫数</th>
+</tr>
+<tr th:each="p:${application.productsList}">
+	<td><input type="button" class="btn" th:value="${p.productsname}"/></td>
+    <td>[[${p.price}]]</td>
+	<td>[[${p.quantity}]]</td>
+</tr>
+</table>
+
+  <p id="information"></p>
+<p id="errmsg" style="color:red">[[${errmsg }]]</p>
+<form th:action="@{/purchase/purchase}" method="get">
+<input id="purchase" type="submit" value="購入"/>
+</form>
+<footer class="footer">
+<form th:action="@{/login/login}" method="get">
+<input type="submit" value="ログアウト">
+</form>
+ <p class="copyright">© 2023 Shopping Inc.All Rights Reserved.
+ </p>
+
+
+</body>
+</html>

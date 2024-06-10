@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>新規登録画面</title>
+</head>
+<style>
+.box {
+        border: 1px solid #ccc;
+        max-width: 500px;
+        width: auto;
+        min-height: 100px;
+        margin: 0 auto;
+    }
+ul li{
+ list-style:none
+ }
+ ul li:ntn-child(odd){
+ text-align:left
+ }
+ ul li:ntn-child(even){
+ text-align:center
+ }
+ 
+ .regist{
+ background-color:yellow
+ }
+ 
+</style>
+<body>
+<form th:action="@{/regist/check}" method="POST" th:object="${newRegisterForm}">
+<div id=box>
+<li>
+<ul>ID(半角英数字)</ul>
+<ul><input type="text" th:field="*{id}" placeholder="IDを入力してください" pattern="[a-zA-Z0-9]+"/></ul>
+<ul>パスワード(半角英数字)</ul>
+<ul><input type="text" th:field="*{password}" placeholder="パスワードを入力してください" pattern="[a-zA-Z0-9]+"/></ul>
+<ul>もう一度パスワードを入力してください</ul>
+<ul><input type="text" th:field="*{password2}" placeholder="パスワードを入力してください" pattern="[a-zA-Z0-9]+"/></ul>
+<ul>メールアドレス</ul>
+<ul><input type="email" th:field="*{mail}" placeholder="メールアドレスを入力してください" /></ul>
+</li>
+<input type="submit" id="regist" value="登録">
+</div>
+</form>
+<form th:action="@{/login/login}" method="get">
+<input type="submit" value="ログイン画面へ"/>
+</form>
+<div th:if="${#fields.errors('*')}" >
+	<p th:each="err:${#fields.errors('*')}" th:text="${err}"></p></div>
+</body>
+</html>
