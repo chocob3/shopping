@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/purchase")
-public class Purchase {
+public class DoPurchase {
 	@Autowired
 	ServletContext application;
 	@Autowired

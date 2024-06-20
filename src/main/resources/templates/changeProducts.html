@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>商品情報の編集</title>
+</head>
+<body>
+	<table>
+		<tr><td>商品名</td><td>現在のコメント</td></tr>
+		<tr th:each="p: ${application.productsList}">
+			<td class=productsName th:text="${p.productsname}"></td>
+			<td class=comment th:id="${p.productsname}"></td>
+		</tr>
+	</table>
+	<form th:action="@{/changeProducts/doChangeProducts}" method="post">
+	<div id=changeDiv>
+	</div>
+	</form>
+	<form th:action="@{/forDeveloper}" method="get">
+		<input type="submit" value="管理者画面へ">
+	</form>
+	<p>[[${errmsg}]]</p>
+		
+ <script src="/js/changeProducts.js" type="text/javascript" charset="UTF-8">
+		</script> 
+
+</body>
+</html>

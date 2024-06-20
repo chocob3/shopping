@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>変更完了画面</title>
+</head>
+<body>
+<h1>変更内容一覧</h1>
+<table>
+	<tr><th>商品名</th><th>商品説明</th></tr>
+	<tr th:each="p:${application.textList}">
+		<td th:text="${p.productsname}"></td>
+		<td th:text="${application.textList.get(p)}"></td>
+	</tr>
+</table>
+<form th:action="@{/forDeveloper}" method="get">
+	<input type="submit" value="管理者画面へ">
+</form>
+
+</body>
+</html>

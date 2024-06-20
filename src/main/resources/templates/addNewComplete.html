@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>新規商品の追加</title>
+<style>
+	table {
+	    width: 100%;
+	    border-collapse: collapse;
+	    margin-bottom: 20px;
+	}
+	th, td {
+	    border: 1px solid #ddd;
+	    padding: 8px;
+	    text-align: left;
+	}
+	th {
+	    background-color: #f2f2f2;
+	}
+</style>
+</head>
+<body>
+	<p>以下の商品を追加しました</p>
+	<table>
+		<tr><td>商品名</td><td>個数</td><td>値段</td></tr>
+		<tr><td id="productName"th:text="${registProduct.productsname}"></td>
+			<td th:text="${registProduct.quantity}"></td>
+			<td th:text="${registProduct.price}"></td>
+		</tr>
+	</table>
+		<div id="imageContainer">
+		</div>
+<form th:action="@{/addProducts/addProducts}" method="get">
+	<input type="submit" value="商品追加画面へ戻る">
+</form>
+<form th:action="@{/forDeveloper}" method="get">
+	<input type="submit" value="管理者画面へ戻る">
+</form>
+	
+<script src="/js/addNewComplete.js" type="text/javascript" charset="UTF-8">
+</script>
+</body>
+</html>

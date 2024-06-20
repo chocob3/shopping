@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p>追加結果</p>
+<table>
+<tr style="background-color: #f0f0f0"><td>商品名</td><td>在庫数</td><td>価格</td></tr>
+<tr th:each="p:${changeProductsList}">
+	<td id="name"th:text="${p.productsname}"></td>
+	<td id="quantity"th:text="${p.quantity}"></td>
+	<td id="price"th:text="${p.price}"></td>
+</tr>
+</table>
+
+<form th:action="@{/forDeveloper}" method="GET">
+<input type="submit" value="戻る"/>
+</form>
+<script src="/js/addComplete.js" type="javascript" charset="UTF-8"/></script>
+
+
+</body>
+</html>

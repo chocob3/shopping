@@ -44,13 +44,13 @@ public class Login {
 	
 	@PostMapping("/regist")
 	public String regist(@Validated RegisterForm registerForm,BindingResult bindingResult,Model model) {
-		Register register=new Register();
 		Optional<Register> r=registerService.findRegister(registerForm.getId(),registerForm.getPassword());
 		Iterable<Products> productsList=productsService.findAll();
 		String errmsg="";
 		
 		if(r.isPresent()) {
-			session.setAttribute("register", r);
+			Register regi=r.get();	
+			session.setAttribute("register", regi);
 			application.setAttribute("productsList", productsList);
 			return "showProducts";
 		}else {

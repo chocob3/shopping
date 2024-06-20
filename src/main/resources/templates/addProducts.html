@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品変更追加画面</title>
+<style>
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+</style>
+</head>
+<body>
+<p>既存商品の入荷</p>
+<form th:action="@{/addProducts/doAddExistingProducts}" enctype="multipart/form-data" method="POST">
+<table>
+<tr style="background-color: #f0f0f0"><td>商品名</td><td>入荷個数</td></tr>
+<tr th:each="p, iterStat:${application.productsList}">
+	<td th:text=${p.productsname}></td>
+	<td><input type="number" th:name="${p.productsname}"th:max="${p.quantity}" min="0" value="0"></td>
+</tr>
+</table>
+<input type="submit" value="確定"/>
+</form>
+<p th:text=${errmsg}></p>
+<p>商品の追加</p>
+<form th:action="@{/addProducts/doAddNewProducts}" enctype="multipart/form-data" method="POST" th:object="${addProductsForm}">
+<table>
+<tr><td>商品名</td><td>追加個数</td><td>価格</td><td>写真の追加</td></tr>
+<tr><td><input type="text" name="productName"></td>
+	<td><input type="number" name="quantity"></td>
+	<td><input type="number" name="productsPrice" min="0"></td>
+	<td><input type="file" name="file" ></td></tr>
+</table>
+<input type="submit" value="確定"/>
+</form>
+<p th:text=${err}></p>
+<form th:action="@{/forDeveloper}" method="GET" >
+<input type="submit" value="管理者画面へ戻る">
+</form>
+
+
+
+
+</body>
+</html>

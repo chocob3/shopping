@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.footer {
+  padding: 2rem;
+  font-size: 15px;
+  color: #4b5564;
+  background: #fff;
+}
+</style>
+</head>
+<body>
+<h3>店舗情報</h3>
+<div id="map" style="height: 400px; width:100%;"></div>
+<div id="para"></div> 
+<button id="showRouteButton">道順の表示</button>
+ <form th:action="@{/showProducts/showProducts}" method="GET">
+<input type="submit" value="商品一覧画面へ">
+</form> 
+ <footer class="footer">
+ <form th:action="@{/login/login}" method="GET">
+<input type="submit" value="ログアウト">
+ </form>
+ <p class="copyright">© 2023 Shopping Inc.All Rights Reserved.
+ </p>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT0uxle3XDESbyohoxMkFJHx_S_MGqX5k" async defer></script>
+<script src="/js/showMap.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+</html>

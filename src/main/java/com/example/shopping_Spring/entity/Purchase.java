@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,10 +14,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Purchase implements Serializable,Comparable<Purchase>{
+	
 	private Integer purchaseproduct;
 	private String purchaseuser;
 	private Integer purchaseitems;
 	private Timestamp purchasedate;
+	@Id
 	private Integer purchaseid;
 	
 	@Override

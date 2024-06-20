@@ -33,12 +33,28 @@ public class ProductsServiceImpl implements ProductsService {
 
 	@Override
 	public Products updateByProduct(Products products) {
-		return repository.save(products);
+		Integer productsId=products.getProductsid();
+		Integer quantity=products.getQuantity();
+		repository.changeQuantity(quantity, productsId);
+		return products;
 	}
 
 	@Override
 	public Optional<Products> chooseProducts(Integer productsId) {
 		return repository.findById(productsId);
+	}
+	@Override
+	public Optional<Products> chooseProductsByName(String productsName){
+		Iterable<Products> productList=repository.findAll();
+		Products pro =null;
+		for(Products p: productList) {
+			if(productsName.equals(p.getProductsname())){
+				 pro=p;
+			}
+			
+		}
+		Optional<Products> optionalProduct = Optional.ofNullable(pro);
+		return optionalProduct;
 	}
 
 	@Override
@@ -51,6 +67,7 @@ public class ProductsServiceImpl implements ProductsService {
 		}
 		return false;
 	}
+
 	
 
 }

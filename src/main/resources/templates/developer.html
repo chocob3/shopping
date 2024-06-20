@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>管理者画面</title>
+<style>
+    ul {
+        list-style: none;
+        text-align: center;
+    }
+    .box {
+        border: 1px solid #000;
+        border-radius: 5px; /* border-radiusに値を指定 */
+        max-width: 500px;
+        width: auto;
+        min-height: 100px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .container {
+        display: none;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<h3>ただいま製作中</h3>
+<ul id="box">
+    <li>管理者パスワードを入力してください</li>
+    <li><input id="password" type="text" name="password" pattern="[a-zA-Z0-9]+" required/></li>
+    <li><button id="passwordBtn">入力完了</button></li>
+</ul>
+<form th:action="@{/showProducts/showProducts}" method="GET">
+    <input type="submit" value="商品一覧画面へ"/>
+</form>
+
+<div class="container">
+    <ol>
+        <form th:action="@{/addProducts/addProducts}" method="get">
+            <li><input type="submit" value="新規商品の追加・変更"/></li>
+        </form>
+        <form th:action="@{/changeProducts/changeProducts}" method="get">
+			<li><input type="submit" value="商品情報の変更"/></li>
+		</form>
+        <li>商品情報の追加</li>
+    </ol> 
+</div>
+<script src="/js/developer.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+</html>

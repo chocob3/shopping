@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>マイページ</title>
+<style>
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.data{
+display: none;
+
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+.footer {
+  padding: 2rem;
+  font-size: 15px;
+  color: #4b5564;
+  background: #fff;
+}
+
+</style>
+</head>
+<body>
+<p><span th:text="${session.register.id}"></span>さんのマイページ'</p>
+<p>これまでの購入履歴</p>
+
+<button id="closeBtn">履歴を表示</button>
+<table>
+<tr><th>日付</th><th>商品</th><th>個数</th></tr>
+<tr class="data" th:each="p:${session.purchaseMap.keySet()}">
+	<td th:text="${p.purchasedate}"></td>
+	<td th:text="${session.purchaseMap.get(p)}"></td>
+	<td th:text="${p.purchaseitems}"></td>
+</tr>
+</table >
+<p style="color:red;"><c:out th:value="${msg}"/></p>
+<form th:action="@{/showProducts/showProducts}" method="GET">
+<input type="submit" value="商品一覧画面へ">
+</form>
+<footer class="footer">
+<form th:action="@{/login/login}" method="get">
+<input type="submit" value="ログアウト">
+</form>
+ <p class="copyright">© 2023 Shopping Inc.All Rights Reserved.
+ </p>
+
+<script src="/js/myPage.js" type="text/javascript" charset="UTF-8"/></script>
+</body>
+</html>

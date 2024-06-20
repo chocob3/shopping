@@ -11,5 +11,6 @@ public interface ProductsService {
 	Products updateByProduct(Products products);
 	Optional<Products> chooseProducts(Integer productsId);
 	Boolean existProducts();
+	Optional<Products> chooseProductsByName(String productsName);
 
 }
